@@ -64,6 +64,7 @@ router.post('/', async (req, res) => {
     await poolConnect;
     const d = req.body;
     const result = await pool.request()
+      .input('cliente_id', sql.Int, d.cliente_id || null)
       .input('no_solicitud', sql.NVarChar, d.no_solicitud || null)
       .input('cliente_paga', sql.NVarChar, d.cliente_paga || null)
       .input('zona_origen', sql.NVarChar, d.zona_origen || null)
@@ -86,12 +87,12 @@ router.post('/', async (req, res) => {
       .input('notas', sql.NVarChar, d.notas || null)
       .query(`
         INSERT INTO asig_viajes
-          (no_solicitud,cliente_paga,zona_origen,ciudad_origen,cliente_carga,ubicacion_carga,cita_carga,
+          (cliente_id,no_solicitud,cliente_paga,zona_origen,ciudad_origen,cliente_carga,ubicacion_carga,cita_carga,
            zona_destino,ciudad_destino,cliente_descarga,ubicacion_descarga,cita_descarga,
            operador,tracto,remolque,folio_remision,carta_porte,estatus,coordinador,notas)
         OUTPUT INSERTED.id
         VALUES
-          (@no_solicitud,@cliente_paga,@zona_origen,@ciudad_origen,@cliente_carga,@ubicacion_carga,@cita_carga,
+          (@cliente_id,@no_solicitud,@cliente_paga,@zona_origen,@ciudad_origen,@cliente_carga,@ubicacion_carga,@cita_carga,
            @zona_destino,@ciudad_destino,@cliente_descarga,@ubicacion_descarga,@cita_descarga,
            @operador,@tracto,@remolque,@folio_remision,@carta_porte,@estatus,@coordinador,@notas)
       `);
@@ -108,6 +109,7 @@ router.put('/:id', async (req, res) => {
     const d = req.body;
     await pool.request()
       .input('id', sql.Int, req.params.id)
+      .input('cliente_id', sql.Int, d.cliente_id || null)
       .input('no_solicitud', sql.NVarChar, d.no_solicitud || null)
       .input('cliente_paga', sql.NVarChar, d.cliente_paga || null)
       .input('zona_origen', sql.NVarChar, d.zona_origen || null)
@@ -130,7 +132,7 @@ router.put('/:id', async (req, res) => {
       .input('notas', sql.NVarChar, d.notas || null)
       .query(`
         UPDATE asig_viajes SET
-          no_solicitud=@no_solicitud, cliente_paga=@cliente_paga,
+          cliente_id=@cliente_id, no_solicitud=@no_solicitud, cliente_paga=@cliente_paga,
           zona_origen=@zona_origen, ciudad_origen=@ciudad_origen,
           cliente_carga=@cliente_carga, ubicacion_carga=@ubicacion_carga, cita_carga=@cita_carga,
           zona_destino=@zona_destino, ciudad_destino=@ciudad_destino,

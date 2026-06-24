@@ -9,6 +9,7 @@ app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/zonas', auth, require('./routes/zonas'));
+app.use('/api/clientes', auth, require('./routes/clientes'));
 app.use('/api/viajes', auth, require('./routes/viajes'));
 app.use('/api/dispatch', auth, require('./routes/dispatch'));
 

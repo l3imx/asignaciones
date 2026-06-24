@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../api';
+import ClienteSelect from '../components/ClienteSelect';
 
 const ESTATUS_OPTIONS = ['PENDIENTE', 'CUBIERTO', 'FINALIZADO', 'CANCELADO'];
 
 const EMPTY = {
-  no_solicitud: '', cliente_paga: '',
+  cliente_id: null, no_solicitud: '', cliente_paga: '',
   zona_origen: '', ciudad_origen: '', cliente_carga: '', ubicacion_carga: '', cita_carga: '',
   zona_destino: '', ciudad_destino: '', cliente_descarga: '', ubicacion_descarga: '', cita_descarga: '',
   operador: '', tracto: '', remolque: '', folio_remision: '', carta_porte: '',
@@ -47,12 +48,14 @@ export default function ViajeForm() {
   const nav = useNavigate();
   const [form, setForm] = useState(EMPTY);
   const [zonas, setZonas] = useState([]);
+  const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const isEdit = Boolean(id);
 
   useEffect(() => {
     api.get('/zonas').then(r => setZonas(r.data)).catch(() => {});
+    api.get('/clientes').then(r => setClientes(r.data)).catch(() => {});
     if (isEdit) {
       api.get(`/viajes/${id}`).then(r => {
         const v = r.data;
@@ -109,10 +112,19 @@ export default function ViajeForm() {
             {/* ── GENERAL ── */}
             <div className="form-section form-full">
               <div className="form-section-title">General</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 16 }}>
                 <Field label="No. Solicitud" {...f('no_solicitud')} />
                 <Field label="Cliente que paga" {...f('cliente_paga')} />
                 <Field label="Coordinador" {...f('coordinador')} />
+                <div className="field">
+                  <label>Cliente</label>
+                  <ClienteSelect
+                    value={form.cliente_id}
+                    onChange={id => set('cliente_id', id)}
+                    clientes={clientes}
+                    onClienteAdded={c => setClientes(prev => [...prev, c].sort((a,b) => a.nombre.localeCompare(b.nombre)))}
+                  />
+                </div>
               </div>
             </div>
 
