@@ -12,12 +12,12 @@ router.get('/', async (req, res) => {
     let where = 'WHERE 1=1';
     const req2 = pool.request();
 
-    if (estatus) { where += ' AND estatus = @estatus'; req2.input('estatus', sql.NVarChar, estatus); }
-    if (zona) { where += ' AND (zona_origen = @zona OR zona_destino = @zona)'; req2.input('zona', sql.NVarChar, zona); }
-    if (desde) { where += ' AND cita_carga >= @desde'; req2.input('desde', sql.DateTime, new Date(desde)); }
-    if (hasta) { where += ' AND cita_carga <= @hasta'; req2.input('hasta', sql.DateTime, new Date(hasta)); }
+    if (estatus) { where += ' AND v.estatus = @estatus'; req2.input('estatus', sql.NVarChar, estatus); }
+    if (zona) { where += ' AND (v.zona_origen = @zona OR v.zona_destino = @zona)'; req2.input('zona', sql.NVarChar, zona); }
+    if (desde) { where += ' AND v.cita_carga >= @desde'; req2.input('desde', sql.DateTime, new Date(desde)); }
+    if (hasta) { where += ' AND v.cita_carga <= @hasta'; req2.input('hasta', sql.DateTime, new Date(hasta)); }
     if (q) {
-      where += ' AND (cliente_paga LIKE @q OR ciudad_origen LIKE @q OR ciudad_destino LIKE @q OR tracto LIKE @q OR operador LIKE @q)';
+      where += ' AND (c.nombre LIKE @q OR v.cliente_paga LIKE @q OR v.ciudad_origen LIKE @q OR v.ciudad_destino LIKE @q OR v.tracto LIKE @q OR v.operador LIKE @q)';
       req2.input('q', sql.NVarChar, `%${q}%`);
     }
 
