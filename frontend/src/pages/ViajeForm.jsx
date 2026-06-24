@@ -22,18 +22,19 @@ function toInputDT(iso) {
 }
 
 // Defined OUTSIDE the component so React doesn't remount on every keystroke
-function Field({ label, name, type = 'text', as, value, onChange }) {
+function Field({ label, name, type = 'text', as, value, onChange, uppercase }) {
+  const handle = (val) => onChange(name, uppercase ? val.toUpperCase() : val);
   return (
     <div className="field">
       <label>{label}</label>
       {as === 'estatus' ? (
-        <select value={value} onChange={e => onChange(name, e.target.value)}>
+        <select value={value} onChange={e => handle(e.target.value)}>
           {ESTATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
       ) : as === 'textarea' ? (
-        <textarea value={value} onChange={e => onChange(name, e.target.value)} />
+        <textarea value={value} onChange={e => handle(e.target.value)} />
       ) : (
-        <input type={type} value={value} onChange={e => onChange(name, e.target.value)} />
+        <input type={type} value={value} onChange={e => handle(e.target.value)} />
       )}
     </div>
   );
@@ -155,7 +156,7 @@ export default function ViajeForm() {
                 zonaValue={form.zona_origen} ciudadValue={form.ciudad_origen}
                 onChange={set}
               />
-              <Field label="Cliente carga" {...f('cliente_carga')} />
+              <Field label="Cliente carga" {...f('cliente_carga')} uppercase />
               <Field label="Ubicación carga" {...f('ubicacion_carga', { as: 'textarea' })} />
               <Field label="Cita de carga" {...f('cita_carga', { type: 'datetime-local' })} />
             </div>
@@ -169,7 +170,7 @@ export default function ViajeForm() {
                 zonaValue={form.zona_destino} ciudadValue={form.ciudad_destino}
                 onChange={set}
               />
-              <Field label="Cliente descarga" {...f('cliente_descarga')} />
+              <Field label="Cliente descarga" {...f('cliente_descarga')} uppercase />
               <Field label="Ubicación descarga" {...f('ubicacion_descarga', { as: 'textarea' })} />
               <Field label="Cita de descarga" {...f('cita_descarga', { type: 'datetime-local' })} />
             </div>
