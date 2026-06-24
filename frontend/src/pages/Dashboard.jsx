@@ -81,7 +81,7 @@ export default function Dashboard() {
               <thead>
                 <tr>
                   <th className="col-zona">ZONA</th>
-                  <th className="col-firma">EN FIRMA</th>
+                  <th className="col-firma">TOTAL</th>
                   {data.days.map(d => (
                     <th key={d} style={isToday(d) ? { background: '#f5a623', color: '#1a1a2e' } : {}}>
                       {fmtDay(d)}
