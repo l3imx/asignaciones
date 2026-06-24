@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../api';
 import ClienteSelect from '../components/ClienteSelect';
+import { ESTADOS, ESTADOS_CIUDADES } from '../data/mexico';
 
 const ESTATUS_OPTIONS = ['PENDIENTE', 'CUBIERTO', 'FINALIZADO', 'CANCELADO'];
 
@@ -21,16 +22,11 @@ function toInputDT(iso) {
 }
 
 // Defined OUTSIDE the component so React doesn't remount on every keystroke
-function Field({ label, name, type = 'text', as, value, onChange, zonas }) {
+function Field({ label, name, type = 'text', as, value, onChange }) {
   return (
     <div className="field">
       <label>{label}</label>
-      {as === 'select' ? (
-        <select value={value} onChange={e => onChange(name, e.target.value)}>
-          <option value="">— Seleccionar —</option>
-          {zonas.map(z => <option key={z.id} value={z.nombre}>{z.nombre}</option>)}
-        </select>
-      ) : as === 'estatus' ? (
+      {as === 'estatus' ? (
         <select value={value} onChange={e => onChange(name, e.target.value)}>
           {ESTATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
@@ -43,18 +39,42 @@ function Field({ label, name, type = 'text', as, value, onChange, zonas }) {
   );
 }
 
+function ZonaCiudad({ zonaLabel, ciudadLabel, zonaName, ciudadName, zonaValue, ciudadValue, onChange }) {
+  const ciudades = zonaValue ? (ESTADOS_CIUDADES[zonaValue] || []) : [];
+  return (
+    <>
+      <div className="field">
+        <label>{zonaLabel}</label>
+        <select value={zonaValue} onChange={e => { onChange(zonaName, e.target.value); onChange(ciudadName, ''); }}>
+          <option value="">— Seleccionar estado —</option>
+          {ESTADOS.map(e => <option key={e} value={e}>{e}</option>)}
+        </select>
+      </div>
+      <div className="field">
+        <label>{ciudadLabel}</label>
+        {zonaValue ? (
+          <select value={ciudadValue} onChange={e => onChange(ciudadName, e.target.value)}>
+            <option value="">— Seleccionar ciudad —</option>
+            {ciudades.map(c => <option key={c} value={c}>{c}</option>)}
+          </select>
+        ) : (
+          <input type="text" value={ciudadValue} disabled placeholder="Selecciona un estado primero" style={{ color: '#aaa' }} />
+        )}
+      </div>
+    </>
+  );
+}
+
 export default function ViajeForm() {
   const { id } = useParams();
   const nav = useNavigate();
   const [form, setForm] = useState(EMPTY);
-  const [zonas, setZonas] = useState([]);
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const isEdit = Boolean(id);
 
   useEffect(() => {
-    api.get('/zonas').then(r => setZonas(r.data)).catch(() => {});
     api.get('/clientes').then(r => setClientes(r.data)).catch(() => {});
     if (isEdit) {
       api.get(`/viajes/${id}`).then(r => {
@@ -92,7 +112,6 @@ export default function ViajeForm() {
     name,
     value: form[name] || '',
     onChange: set,
-    zonas,
     ...extra,
   });
 
@@ -130,8 +149,12 @@ export default function ViajeForm() {
             {/* ── ORIGEN ── */}
             <div className="form-section">
               <div className="form-section-title orange">Origen</div>
-              <Field label="Zona origen" {...f('zona_origen', { as: 'select' })} />
-              <Field label="Ciudad origen" {...f('ciudad_origen')} />
+              <ZonaCiudad
+                zonaLabel="Estado origen" ciudadLabel="Ciudad origen"
+                zonaName="zona_origen" ciudadName="ciudad_origen"
+                zonaValue={form.zona_origen} ciudadValue={form.ciudad_origen}
+                onChange={set}
+              />
               <Field label="Cliente carga" {...f('cliente_carga')} />
               <Field label="Ubicación carga" {...f('ubicacion_carga', { as: 'textarea' })} />
               <Field label="Cita de carga" {...f('cita_carga', { type: 'datetime-local' })} />
@@ -140,8 +163,12 @@ export default function ViajeForm() {
             {/* ── DESTINO ── */}
             <div className="form-section">
               <div className="form-section-title blue">Destino</div>
-              <Field label="Zona destino" {...f('zona_destino', { as: 'select' })} />
-              <Field label="Ciudad destino" {...f('ciudad_destino')} />
+              <ZonaCiudad
+                zonaLabel="Estado destino" ciudadLabel="Ciudad destino"
+                zonaName="zona_destino" ciudadName="ciudad_destino"
+                zonaValue={form.zona_destino} ciudadValue={form.ciudad_destino}
+                onChange={set}
+              />
               <Field label="Cliente descarga" {...f('cliente_descarga')} />
               <Field label="Ubicación descarga" {...f('ubicacion_descarga', { as: 'textarea' })} />
               <Field label="Cita de descarga" {...f('cita_descarga', { type: 'datetime-local' })} />
