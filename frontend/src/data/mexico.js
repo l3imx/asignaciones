@@ -1,185 +1,184 @@
 export const ESTADOS_CIUDADES = {
-  'Aguascalientes': [
-    'Aguascalientes', 'Asientos', 'Calvillo', 'Cosío', 'El Llano',
-    'Jesús María', 'Pabellón de Arteaga', 'Rincón de Romos',
-    'San Francisco de los Romo', 'San José de Gracia', 'Tepezalá',
+  'AGUASCALIENTES': [
+    'AGUASCALIENTES', 'ASIENTOS', 'CALVILLO', 'COSÍO', 'EL LLANO',
+    'JESÚS MARÍA', 'PABELLÓN DE ARTEAGA', 'RINCÓN DE ROMOS',
+    'SAN FRANCISCO DE LOS ROMO', 'SAN JOSÉ DE GRACIA', 'TEPEZALÁ',
   ],
-  'Baja California': [
-    'Ensenada', 'Guadalupe Victoria', 'Mexicali', 'Playas de Rosarito',
-    'San Felipe', 'San Quintín', 'Tecate', 'Tijuana', 'Vicente Guerrero',
+  'BAJA CALIFORNIA': [
+    'ENSENADA', 'GUADALUPE VICTORIA', 'MEXICALI', 'PLAYAS DE ROSARITO',
+    'SAN FELIPE', 'SAN QUINTÍN', 'TECATE', 'TIJUANA', 'VICENTE GUERRERO',
   ],
-  'Baja California Sur': [
-    'Cabo San Lucas', 'Ciudad Constitución', 'Ciudad Insurgentes',
-    'Comondú', 'Guerrero Negro', 'La Paz', 'Loreto', 'Los Barriles',
-    'Mulegé', 'San José del Cabo', 'Santa Rosalía',
+  'BAJA CALIFORNIA SUR': [
+    'CABO SAN LUCAS', 'CIUDAD CONSTITUCIÓN', 'CIUDAD INSURGENTES',
+    'COMONDÚ', 'GUERRERO NEGRO', 'LA PAZ', 'LORETO', 'LOS BARRILES',
+    'MULEGÉ', 'SAN JOSÉ DEL CABO', 'SANTA ROSALÍA',
   ],
-  'Campeche': [
-    'Calakmul', 'Calkiní', 'Campeche', 'Candelaria', 'Champotón',
-    'Ciudad del Carmen', 'Escárcega', 'Hecelchakán', 'Hopelchén',
-    'Palizada', 'Tenabo',
+  'CAMPECHE': [
+    'CALAKMUL', 'CALKINÍ', 'CAMPECHE', 'CANDELARIA', 'CHAMPOTÓN',
+    'CIUDAD DEL CARMEN', 'ESCÁRCEGA', 'HECELCHAKÁN', 'HOPELCHÉN',
+    'PALIZADA', 'TENABO',
   ],
-  'Chiapas': [
-    'Arriaga', 'Berriozábal', 'Cintalapa', 'Comitán de Domínguez',
-    'Huixtla', 'Las Margaritas', 'Mapastepec', 'Motozintla', 'Ocosingo',
-    'Ocozocoautla', 'Palenque', 'Pichucalco', 'San Cristóbal de las Casas',
-    'Tapachula', 'Tonalá', 'Tuxtla Chico', 'Tuxtla Gutiérrez', 'Villaflores',
+  'CHIAPAS': [
+    'ARRIAGA', 'BERRIOZÁBAL', 'CINTALAPA', 'COMITÁN DE DOMÍNGUEZ',
+    'HUIXTLA', 'LAS MARGARITAS', 'MAPASTEPEC', 'MOTOZINTLA', 'OCOSINGO',
+    'OCOZOCOAUTLA', 'PALENQUE', 'PICHUCALCO', 'SAN CRISTÓBAL DE LAS CASAS',
+    'TAPACHULA', 'TONALÁ', 'TUXTLA CHICO', 'TUXTLA GUTIÉRREZ', 'VILLAFLORES',
   ],
-  'Chihuahua': [
-    'Camargo', 'Chihuahua', 'Ciudad Juárez', 'Ciudad Jiménez',
-    'Cuauhtémoc', 'Delicias', 'El Sueco', 'Guachochi', 'Hidalgo del Parral',
-    'Jiménez', 'Meoqui', 'Nuevo Casas Grandes', 'Ojinaga', 'Saucillo',
+  'CHIHUAHUA': [
+    'CAMARGO', 'CHIHUAHUA', 'CIUDAD JUÁREZ', 'CIUDAD JIMÉNEZ',
+    'CUAUHTÉMOC', 'DELICIAS', 'EL SUECO', 'GUACHOCHI', 'HIDALGO DEL PARRAL',
+    'JIMÉNEZ', 'MEOQUI', 'NUEVO CASAS GRANDES', 'OJINAGA', 'SAUCILLO',
   ],
-  'Ciudad de México': [
-    'Álvaro Obregón', 'Azcapotzalco', 'Benito Juárez', 'Coyoacán',
-    'Cuajimalpa', 'Cuauhtémoc', 'Gustavo A. Madero', 'Iztacalco',
-    'Iztapalapa', 'La Magdalena Contreras', 'Miguel Hidalgo', 'Milpa Alta',
-    'Tláhuac', 'Tlalpan', 'Venustiano Carranza', 'Xochimilco',
+  'CIUDAD DE MÉXICO': [
+    'ÁLVARO OBREGÓN', 'AZCAPOTZALCO', 'BENITO JUÁREZ', 'COYOACÁN',
+    'CUAJIMALPA', 'CUAUHTÉMOC', 'GUSTAVO A. MADERO', 'IZTACALCO',
+    'IZTAPALAPA', 'LA MAGDALENA CONTRERAS', 'MIGUEL HIDALGO', 'MILPA ALTA',
+    'TLÁHUAC', 'TLALPAN', 'VENUSTIANO CARRANZA', 'XOCHIMILCO',
   ],
-  'Coahuila': [
-    'Acuña', 'Arteaga', 'Castaños', 'Frontera', 'Matamoros',
-    'Monclova', 'Múzquiz', 'Nava', 'Piedras Negras', 'Ramos Arizpe',
-    'Sabinas', 'Saltillo', 'San Buenaventura', 'San Pedro', 'Torreón',
+  'COAHUILA': [
+    'ACUÑA', 'ARTEAGA', 'CASTAÑOS', 'FRONTERA', 'MATAMOROS',
+    'MONCLOVA', 'MÚZQUIZ', 'NAVA', 'PIEDRAS NEGRAS', 'RAMOS ARIZPE',
+    'SABINAS', 'SALTILLO', 'SAN BUENAVENTURA', 'SAN PEDRO', 'TORREÓN',
   ],
-  'Colima': [
-    'Armería', 'Colima', 'Comala', 'Coquimatlán', 'Cuauhtémoc',
-    'Ixtlahuacán', 'Manzanillo', 'Minatitlán', 'Tecomán', 'Villa de Álvarez',
+  'COLIMA': [
+    'ARMERÍA', 'COLIMA', 'COMALA', 'COQUIMATLÁN', 'CUAUHTÉMOC',
+    'IXTLAHUACÁN', 'MANZANILLO', 'MINATITLÁN', 'TECOMÁN', 'VILLA DE ÁLVAREZ',
   ],
-  'Durango': [
-    'Canatlán', 'Durango', 'El Salto', 'Gómez Palacio', 'Guadalupe Victoria',
-    'Guanaceví', 'Lerdo', 'Nombre de Dios', 'Nuevo Ideal',
-    'Santiago Papasquiaro', 'Tlahualilo', 'Vicente Guerrero',
+  'DURANGO': [
+    'CANATLÁN', 'DURANGO', 'EL SALTO', 'GÓMEZ PALACIO', 'GUADALUPE VICTORIA',
+    'GUANACEVÍ', 'LERDO', 'NOMBRE DE DIOS', 'NUEVO IDEAL',
+    'SANTIAGO PAPASQUIARO', 'TLAHUALILO', 'VICENTE GUERRERO',
   ],
-  'Estado de México': [
-    'Amecameca', 'Atlacomulco', 'Chalco', 'Chimalhuacán', 'Cuautitlán',
-    'Cuautitlán Izcalli', 'Ecatepec', 'El Oro', 'Ixtapan de la Sal',
-    'Ixtlahuaca', 'Jocotitlán', 'Lerma', 'Metepec', 'Naucalpan',
-    'Nezahualcóyotl', 'Nicolás Romero', 'Tecámac', 'Tejupilco', 'Texcoco',
-    'Tlalnepantla', 'Toluca', 'Tultitlán', 'Valle de Bravo', 'Zinacantepec',
+  'ESTADO DE MÉXICO': [
+    'AMECAMECA', 'ATLACOMULCO', 'CHALCO', 'CHIMALHUACÁN', 'CUAUTITLÁN',
+    'CUAUTITLÁN IZCALLI', 'ECATEPEC', 'EL ORO', 'IXTAPAN DE LA SAL',
+    'IXTLAHUACA', 'JOCOTITLÁN', 'LERMA', 'METEPEC', 'NAUCALPAN',
+    'NEZAHUALCÓYOTL', 'NICOLÁS ROMERO', 'TECÁMAC', 'TEJUPILCO', 'TEXCOCO',
+    'TLALNEPANTLA', 'TOLUCA', 'TULTITLÁN', 'VALLE DE BRAVO', 'ZINACANTEPEC',
   ],
-  'Guanajuato': [
-    'Acámbaro', 'Apaseo el Grande', 'Celaya', 'Cortazar', 'Dolores Hidalgo',
-    'Guanajuato', 'Irapuato', 'Jaral del Progreso', 'León', 'Moroleón',
-    'Pénjamo', 'Purísima del Rincón', 'Salamanca', 'Salvatierra',
-    'San Francisco del Rincón', 'San José Iturbide', 'San Luis de la Paz',
-    'San Miguel de Allende', 'Silao', 'Uriangato', 'Valle de Santiago', 'Villagrán',
+  'GUANAJUATO': [
+    'ACÁMBARO', 'APASEO EL GRANDE', 'CELAYA', 'CORTAZAR', 'DOLORES HIDALGO',
+    'GUANAJUATO', 'IRAPUATO', 'JARAL DEL PROGRESO', 'LEÓN', 'MOROLEÓN',
+    'PÉNJAMO', 'PURÍSIMA DEL RINCÓN', 'SALAMANCA', 'SALVATIERRA',
+    'SAN FRANCISCO DEL RINCÓN', 'SAN JOSÉ ITURBIDE', 'SAN LUIS DE LA PAZ',
+    'SAN MIGUEL DE ALLENDE', 'SILAO', 'URIANGATO', 'VALLE DE SANTIAGO', 'VILLAGRÁN',
   ],
-  'Guerrero': [
-    'Acapulco', 'Arcelia', 'Ayutla de los Libres', 'Chilapa de Álvarez',
-    'Chilpancingo', 'Ciudad Altamirano', 'Coyuca de Benítez', 'Cruz Grande',
-    'Huitzuco', 'Iguala', 'Ometepec', 'Petatlán', 'Taxco', 'Teloloapan',
-    'Tlapa de Comonfort', 'Zihuatanejo',
+  'GUERRERO': [
+    'ACAPULCO', 'ARCELIA', 'AYUTLA DE LOS LIBRES', 'CHILAPA DE ÁLVAREZ',
+    'CHILPANCINGO', 'CIUDAD ALTAMIRANO', 'COYUCA DE BENÍTEZ', 'CRUZ GRANDE',
+    'HUITZUCO', 'IGUALA', 'OMETEPEC', 'PETATLÁN', 'TAXCO', 'TELOLOAPAN',
+    'TLAPA DE COMONFORT', 'ZIHUATANEJO',
   ],
-  'Hidalgo': [
-    'Actopan', 'Apan', 'Huejutla de Reyes', 'Ixmiquilpan', 'Mixquiahuala',
-    'Molango', 'Pachuca', 'Tizayuca', 'Tula de Allende', 'Tulancingo',
-    'Tepeji del Río', 'Tepeapulco', 'Tizayuca', 'Zimapán',
+  'HIDALGO': [
+    'ACTOPAN', 'APAN', 'HUEJUTLA DE REYES', 'IXMIQUILPAN', 'MIXQUIAHUALA',
+    'MOLANGO', 'PACHUCA', 'TEPEJI DEL RÍO', 'TEPEAPULCO', 'TIZAYUCA',
+    'TULA DE ALLENDE', 'TULANCINGO', 'ZIMAPÁN',
   ],
-  'Jalisco': [
-    'Ameca', 'Arandas', 'Autlán de Navarro', 'Casimiro Castillo', 'Cihuatlán',
-    'Ciudad Guzmán', 'Cocula', 'El Grullo', 'El Salto', 'Encarnación de Díaz',
-    'Guadalajara', 'La Barca', 'Lagos de Moreno', 'Ocotlán', 'Puerto Vallarta',
-    'Sayula', 'Tamazula de Gordiano', 'Tepatitlán de Morelos', 'Tequila',
-    'Tlajomulco de Zúñiga', 'Tlaquepaque', 'Tonalá', 'Zapopan', 'Zapotlanejo',
+  'JALISCO': [
+    'AMECA', 'ARANDAS', 'AUTLÁN DE NAVARRO', 'CASIMIRO CASTILLO', 'CIHUATLÁN',
+    'CIUDAD GUZMÁN', 'COCULA', 'EL GRULLO', 'EL SALTO', 'ENCARNACIÓN DE DÍAZ',
+    'GUADALAJARA', 'LA BARCA', 'LAGOS DE MORENO', 'OCOTLÁN', 'PUERTO VALLARTA',
+    'SAYULA', 'TAMAZULA DE GORDIANO', 'TEPATITLÁN DE MORELOS', 'TEQUILA',
+    'TLAJOMULCO DE ZÚÑIGA', 'TLAQUEPAQUE', 'TONALÁ', 'ZAPOPAN', 'ZAPOTLANEJO',
   ],
-  'Michoacán': [
-    'Apatzingán', 'Apatzingán', 'Coalcomán', 'Jacona', 'Jiquilpan',
-    'La Piedad', 'Lázaro Cárdenas', 'Los Reyes', 'Maravatío', 'Morelia',
-    'Pátzcuaro', 'Sahuayo', 'Tacámbaro', 'Uruapan', 'Zacapu', 'Zamora', 'Zitácuaro',
+  'MICHOACÁN': [
+    'APATZINGÁN', 'COALCOMÁN', 'JACONA', 'JIQUILPAN', 'LA PIEDAD',
+    'LÁZARO CÁRDENAS', 'LOS REYES', 'MARAVATÍO', 'MORELIA', 'PÁTZCUARO',
+    'SAHUAYO', 'TACÁMBARO', 'URUAPAN', 'ZACAPU', 'ZAMORA', 'ZITÁCUARO',
   ],
-  'Morelos': [
-    'Ayala', 'Cuautla', 'Cuernavaca', 'Emiliano Zapata', 'Jiutepec',
-    'Jojutla', 'Puente de Ixtla', 'Temixco', 'Tepoztlán', 'Tlayacapan',
-    'Xochitepec', 'Yautepec', 'Yecapixtla', 'Zacatepec',
+  'MORELOS': [
+    'AYALA', 'CUAUTLA', 'CUERNAVACA', 'EMILIANO ZAPATA', 'JIUTEPEC',
+    'JOJUTLA', 'PUENTE DE IXTLA', 'TEMIXCO', 'TEPOZTLÁN', 'TLAYACAPAN',
+    'XOCHITEPEC', 'YAUTEPEC', 'YECAPIXTLA', 'ZACATEPEC',
   ],
-  'Nayarit': [
-    'Acaponeta', 'Ahuacatlán', 'Bahía de Banderas', 'Compostela',
-    'Ixtlán del Río', 'Rosamorada', 'Ruiz', 'San Blas', 'Santiago Ixcuintla',
-    'Tecuala', 'Tepic', 'Tuxpan', 'Xalisco',
+  'NAYARIT': [
+    'ACAPONETA', 'AHUACATLÁN', 'BAHÍA DE BANDERAS', 'COMPOSTELA',
+    'IXTLÁN DEL RÍO', 'ROSAMORADA', 'RUIZ', 'SAN BLAS', 'SANTIAGO IXCUINTLA',
+    'TECUALA', 'TEPIC', 'TUXPAN', 'XALISCO',
   ],
-  'Nuevo León': [
-    'Allende', 'Anáhuac', 'Apodaca', 'Cadereyta Jiménez', 'Cerralvo',
-    'China', 'Doctor Arroyo', 'El Carmen', 'García', 'General Escobedo',
-    'General Terán', 'Guadalupe', 'Hualahuises', 'Juárez', 'Linares',
-    'Mina', 'Montemorelos', 'Monterrey', 'Sabinas Hidalgo', 'Salinas Victoria',
-    'San Nicolás de los Garza', 'San Pedro Garza García', 'Santa Catarina', 'Santiago',
+  'NUEVO LEÓN': [
+    'ALLENDE', 'ANÁHUAC', 'APODACA', 'CADEREYTA JIMÉNEZ', 'CERRALVO',
+    'CHINA', 'DOCTOR ARROYO', 'EL CARMEN', 'GARCÍA', 'GENERAL ESCOBEDO',
+    'GENERAL TERÁN', 'GUADALUPE', 'HUALAHUISES', 'JUÁREZ', 'LINARES',
+    'MINA', 'MONTEMORELOS', 'MONTERREY', 'SABINAS HIDALGO', 'SALINAS VICTORIA',
+    'SAN NICOLÁS DE LOS GARZA', 'SAN PEDRO GARZA GARCÍA', 'SANTA CATARINA', 'SANTIAGO',
   ],
-  'Oaxaca': [
-    'Heroica Ciudad de Huajuapan de León', 'Huatulco', 'Ixtepec',
-    'Juchitán de Zaragoza', 'Miahuatlán de Porfirio Díaz', 'Oaxaca de Juárez',
-    'Pinotepa Nacional', 'Puerto Escondido', 'Salina Cruz',
-    'San Juan Bautista Tuxtepec', 'Tehuantepec', 'Tlacolula de Matamoros',
+  'OAXACA': [
+    'HUAJUAPAN DE LEÓN', 'HUATULCO', 'IXTEPEC', 'JUCHITÁN DE ZARAGOZA',
+    'MIAHUATLÁN DE PORFIRIO DÍAZ', 'OAXACA DE JUÁREZ', 'PINOTEPA NACIONAL',
+    'PUERTO ESCONDIDO', 'SALINA CRUZ', 'SAN JUAN BAUTISTA TUXTEPEC',
+    'TEHUANTEPEC', 'TLACOLULA DE MATAMOROS',
   ],
-  'Puebla': [
-    'Acatlán de Osorio', 'Ajalpan', 'Atlixco', 'Cholula', 'Ciudad Serdán',
-    'Huauchinango', 'Izúcar de Matamoros', 'Libres', 'Puebla',
-    'San Martín Texmelucan', 'Tecamachalco', 'Tehuacán', 'Tepeaca',
-    'Teziutlán', 'Tlatlauquitepec', 'Zacatlán', 'Zacapoaxtla',
+  'PUEBLA': [
+    'ACATLÁN DE OSORIO', 'AJALPAN', 'ATLIXCO', 'CHOLULA', 'CIUDAD SERDÁN',
+    'HUAUCHINANGO', 'IZÚCAR DE MATAMOROS', 'LIBRES', 'PUEBLA',
+    'SAN MARTÍN TEXMELUCAN', 'TECAMACHALCO', 'TEHUACÁN', 'TEPEACA',
+    'TEZIUTLÁN', 'TLATLAUQUITEPEC', 'ZACAPOAXTLA', 'ZACATLÁN',
   ],
-  'Querétaro': [
-    'Amealco de Bonfil', 'Cadereyta de Montes', 'Colón', 'Corregidora',
-    'El Marqués', 'Ezequiel Montes', 'Huimilpan', 'Jalpan de Serra',
-    'Landa de Matamoros', 'Pedro Escobedo', 'Peñamiller', 'Pinal de Amoles',
-    'Querétaro', 'San Joaquín', 'San Juan del Río', 'Tequisquiapan', 'Tolimán',
+  'QUERÉTARO': [
+    'AMEALCO DE BONFIL', 'CADEREYTA DE MONTES', 'COLÓN', 'CORREGIDORA',
+    'EL MARQUÉS', 'EZEQUIEL MONTES', 'HUIMILPAN', 'JALPAN DE SERRA',
+    'LANDA DE MATAMOROS', 'PEDRO ESCOBEDO', 'PEÑAMILLER', 'PINAL DE AMOLES',
+    'QUERÉTARO', 'SAN JOAQUÍN', 'SAN JUAN DEL RÍO', 'TEQUISQUIAPAN', 'TOLIMÁN',
   ],
-  'Quintana Roo': [
-    'Bacalar', 'Cancún', 'Chetumal', 'Cozumel', 'Felipe Carrillo Puerto',
-    'Isla Mujeres', 'José María Morelos', 'Kantunilkín', 'Lázaro Cárdenas',
-    'Mahahual', 'Playa del Carmen', 'Puerto Morelos', 'Tulum',
+  'QUINTANA ROO': [
+    'BACALAR', 'CANCÚN', 'CHETUMAL', 'COZUMEL', 'FELIPE CARRILLO PUERTO',
+    'ISLA MUJERES', 'JOSÉ MARÍA MORELOS', 'KANTUNILKÍN', 'LÁZARO CÁRDENAS',
+    'MAHAHUAL', 'PLAYA DEL CARMEN', 'PUERTO MORELOS', 'TULUM',
   ],
-  'San Luis Potosí': [
-    'Cárdenas', 'Cerritos', 'Ciudad del Maíz', 'Ciudad Fernández',
-    'Ciudad Valles', 'Coxcatlán', 'Ébano', 'Matehuala', 'Mexquitic',
-    'Rioverde', 'Salinas', 'San Luis Potosí', 'Santa María del Río',
-    'Soledad de Graciano Sánchez', 'Tamazunchale', 'Tamuín', 'Xilitla',
+  'SAN LUIS POTOSÍ': [
+    'CÁRDENAS', 'CERRITOS', 'CIUDAD DEL MAÍZ', 'CIUDAD FERNÁNDEZ',
+    'CIUDAD VALLES', 'COXCATLÁN', 'ÉBANO', 'MATEHUALA', 'MEXQUITIC',
+    'RIOVERDE', 'SALINAS', 'SAN LUIS POTOSÍ', 'SANTA MARÍA DEL RÍO',
+    'SOLEDAD DE GRACIANO SÁNCHEZ', 'TAMAZUNCHALE', 'TAMUÍN', 'XILITLA',
   ],
-  'Sinaloa': [
-    'Ahome', 'Angostura', 'Badiraguato', 'Choix', 'Concordia', 'Cosalá',
-    'Culiacán', 'El Fuerte', 'El Rosario', 'Elota', 'Escuinapa',
-    'Guamúchil', 'Guasave', 'Los Mochis', 'Mazatlán', 'Mocorito',
-    'Navolato', 'San Ignacio', 'Sinaloa de Leyva',
+  'SINALOA': [
+    'AHOME', 'ANGOSTURA', 'BADIRAGUATO', 'CHOIX', 'CONCORDIA', 'COSALÁ',
+    'CULIACÁN', 'EL FUERTE', 'EL ROSARIO', 'ELOTA', 'ESCUINAPA',
+    'GUAMÚCHIL', 'GUASAVE', 'LOS MOCHIS', 'MAZATLÁN', 'MOCORITO',
+    'NAVOLATO', 'SAN IGNACIO', 'SINALOA DE LEYVA',
   ],
-  'Sonora': [
-    'Agua Prieta', 'Álamos', 'Altar', 'Caborca', 'Cananea',
-    'Ciudad Obregón', 'Empalme', 'Guaymas', 'Hermosillo', 'Huatabampo',
-    'Magdalena de Kino', 'Moctezuma', 'Navojoa', 'Nogales',
-    'Puerto Peñasco', 'San Luis Río Colorado', 'Santa Ana',
+  'SONORA': [
+    'AGUA PRIETA', 'ÁLAMOS', 'ALTAR', 'CABORCA', 'CANANEA',
+    'CIUDAD OBREGÓN', 'EMPALME', 'GUAYMAS', 'HERMOSILLO', 'HUATABAMPO',
+    'MAGDALENA DE KINO', 'MOCTEZUMA', 'NAVOJOA', 'NOGALES',
+    'PUERTO PEÑASCO', 'SAN LUIS RÍO COLORADO', 'SANTA ANA',
   ],
-  'Tabasco': [
-    'Balancán', 'Cárdenas', 'Centla', 'Comalcalco', 'Cunduacán',
-    'Emiliano Zapata', 'Huimanguillo', 'Jalpa de Méndez', 'Jonuta',
-    'Macuspana', 'Nacajuca', 'Paraíso', 'Tacotalpa', 'Teapa',
-    'Tenosique', 'Villahermosa',
+  'TABASCO': [
+    'BALANCÁN', 'CÁRDENAS', 'CENTLA', 'COMALCALCO', 'CUNDUACÁN',
+    'EMILIANO ZAPATA', 'HUIMANGUILLO', 'JALPA DE MÉNDEZ', 'JONUTA',
+    'MACUSPANA', 'NACAJUCA', 'PARAÍSO', 'TACOTALPA', 'TEAPA',
+    'TENOSIQUE', 'VILLAHERMOSA',
   ],
-  'Tamaulipas': [
-    'Altamira', 'Camargo', 'Ciudad Madero', 'Ciudad Mante', 'Ciudad Victoria',
-    'González', 'Heroica Matamoros', 'Laredo', 'Miguel Alemán', 'Mier',
-    'Nuevo Laredo', 'Ocampo', 'Reynosa', 'Río Bravo', 'San Fernando',
-    'Tampico', 'Tula',
+  'TAMAULIPAS': [
+    'ALTAMIRA', 'CAMARGO', 'CIUDAD MADERO', 'CIUDAD MANTE', 'CIUDAD VICTORIA',
+    'GONZÁLEZ', 'MATAMOROS', 'MIGUEL ALEMÁN', 'MIER', 'NUEVO LAREDO',
+    'OCAMPO', 'REYNOSA', 'RÍO BRAVO', 'SAN FERNANDO', 'TAMPICO', 'TULA',
   ],
-  'Tlaxcala': [
-    'Apizaco', 'Calpulalpan', 'Chiautempan', 'Huamantla', 'Papalotla',
-    'San Pablo del Monte', 'Santa Ana Chiautempan', 'Tlaxcala', 'Tlaxco',
-    'Xicohtzinco', 'Zacatelco',
+  'TLAXCALA': [
+    'APIZACO', 'CALPULALPAN', 'CHIAUTEMPAN', 'HUAMANTLA', 'PAPALOTLA',
+    'SAN PABLO DEL MONTE', 'SANTA ANA CHIAUTEMPAN', 'TLAXCALA', 'TLAXCO',
+    'XICOHTZINCO', 'ZACATELCO',
   ],
-  'Veracruz': [
-    'Acayucan', 'Boca del Río', 'Cabo Rojo', 'Coatzacoalcos', 'Córdoba',
-    'Cosamaloapan', 'Cosoleacaque', 'Heroica Veracruz', 'Las Choapas',
-    'Martínez de la Torre', 'Minatitlán', 'Naranjos', 'Nanchital',
-    'Oluta', 'Orizaba', 'Pánuco', 'Papantla', 'Perote', 'Poza Rica',
-    'Río Blanco', 'San Andrés Tuxtla', 'Santiago Tuxtla', 'Tantoyuca',
-    'Tierra Blanca', 'Tuxpan', 'Veracruz', 'Xalapa',
+  'VERACRUZ': [
+    'ACAYUCAN', 'BOCA DEL RÍO', 'CABO ROJO', 'COATZACOALCOS', 'CÓRDOBA',
+    'COSAMALOAPAN', 'COSOLEACAQUE', 'HEROICA VERACRUZ', 'LAS CHOAPAS',
+    'MARTÍNEZ DE LA TORRE', 'MINATITLÁN', 'NARANJOS', 'NANCHITAL',
+    'OLUTA', 'ORIZABA', 'PÁNUCO', 'PAPANTLA', 'PEROTE', 'POZA RICA',
+    'RÍO BLANCO', 'SAN ANDRÉS TUXTLA', 'SANTIAGO TUXTLA', 'TANTOYUCA',
+    'TIERRA BLANCA', 'TUXPAN', 'VERACRUZ', 'XALAPA',
   ],
-  'Yucatán': [
-    'Conkal', 'Dzilam de Bravo', 'Espita', 'Hunucmá', 'Izamal',
-    'Kanasín', 'Maxcanú', 'Mérida', 'Motul', 'Oxkutzcab',
-    'Progreso', 'Ticul', 'Tizimín', 'Umán', 'Valladolid',
+  'YUCATÁN': [
+    'CONKAL', 'DZILAM DE BRAVO', 'ESPITA', 'HUNUCMÁ', 'IZAMAL',
+    'KANASÍN', 'MAXCANÚ', 'MÉRIDA', 'MOTUL', 'OXKUTZCAB',
+    'PROGRESO', 'TICUL', 'TIZIMÍN', 'UMÁN', 'VALLADOLID',
   ],
-  'Zacatecas': [
-    'Calera', 'Concepción del Oro', 'Fresnillo', 'Guadalupe', 'Jalpa',
-    'Jerez', 'Juan Aldama', 'Loreto', 'Luis Moya', 'Mazapil',
-    'Nochistlán', 'Ojocaliente', 'Pinos', 'Río Grande', 'Sain Alto',
-    'Sombrerete', 'Tlaltenango', 'Valparaíso', 'Villa de Cos',
-    'Villa García', 'Villanueva', 'Zacatecas',
+  'ZACATECAS': [
+    'CALERA', 'CONCEPCIÓN DEL ORO', 'FRESNILLO', 'GUADALUPE', 'JALPA',
+    'JEREZ', 'JUAN ALDAMA', 'LORETO', 'LUIS MOYA', 'MAZAPIL',
+    'NOCHISTLÁN', 'OJOCALIENTE', 'PINOS', 'RÍO GRANDE', 'SAIN ALTO',
+    'SOMBRERETE', 'TLALTENANGO', 'VALPARAÍSO', 'VILLA DE COS',
+    'VILLA GARCÍA', 'VILLANUEVA', 'ZACATECAS',
   ],
 };
 
