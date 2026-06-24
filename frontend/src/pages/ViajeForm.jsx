@@ -112,9 +112,8 @@ export default function ViajeForm() {
             {/* ── GENERAL ── */}
             <div className="form-section form-full">
               <div className="form-section-title">General</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
                 <Field label="No. Solicitud" {...f('no_solicitud')} />
-                <Field label="Cliente que paga" {...f('cliente_paga')} />
                 <Field label="Coordinador" {...f('coordinador')} />
                 <div className="field">
                   <label>Cliente</label>
