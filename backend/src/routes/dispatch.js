@@ -39,25 +39,16 @@ router.get('/', async (req, res) => {
           AND tracto IS NOT NULL AND tracto != ''
       `);
 
-    // PENDIENTE trips per origin zone this week (EN FIRMA count)
-    const pendientes = await pool.request()
-      .input('start', sql.DateTime, monday)
-      .input('end', sql.DateTime, sunday)
-      .query(`
-        SELECT zona_origen, COUNT(*) as total
-        FROM asig_viajes
-        WHERE estatus = 'PENDIENTE'
-          AND cita_carga >= @start
-          AND cita_carga < @end
-          AND zona_origen IS NOT NULL
-        GROUP BY zona_origen
-      `);
-
     // All zones
     const zonas = await pool.request().query('SELECT * FROM asig_zonas WHERE activo=1 ORDER BY nombre');
 
+    // EN FIRMA = total units (chips) on the board for that zone this week
     const enFirmaMap = {};
-    pendientes.recordset.forEach((r) => { enFirmaMap[r.zona_origen] = r.total; });
+    cubiertos.recordset.forEach((r) => {
+      if (r.zona_destino) {
+        enFirmaMap[r.zona_destino] = (enFirmaMap[r.zona_destino] || 0) + 1;
+      }
+    });
 
     const board = zonas.recordset.map((z) => {
       const units = {};
