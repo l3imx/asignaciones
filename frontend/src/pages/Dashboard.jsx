@@ -92,7 +92,7 @@ export default function Dashboard() {
               <tbody>
                 {data.board.map(zona => (
                   <tr key={zona.nombre}>
-                    <td className="col-zona">{zona.nombre}</td>
+                    <td className="col-zona">{zona.nombre.toUpperCase()}</td>
                     <td className="col-firma">{zona.enFirma > 0 ? zona.enFirma : '—'}</td>
                     {data.days.map(d => (
                       <td key={d} style={isToday(d) ? { background: '#fffbf0' } : {}}>
