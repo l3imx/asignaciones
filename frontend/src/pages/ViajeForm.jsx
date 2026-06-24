@@ -4,14 +4,14 @@ import api from '../api';
 import ClienteSelect from '../components/ClienteSelect';
 import { ESTADOS, ESTADOS_CIUDADES } from '../data/mexico';
 
-const ESTATUS_OPTIONS = ['PENDIENTE', 'CUBIERTO', 'FINALIZADO', 'CANCELADO'];
+const ESTATUS_OPTIONS = ['TRANSITO CARGADO', 'ESPERA DE CARGA', 'ESPERA DE DESCARGA', 'PROGRAMADO PARA CARGA', 'FINALIZADO', 'CANCELADO'];
 
 const EMPTY = {
   cliente_id: null, no_solicitud: '', cliente_paga: '',
   zona_origen: '', ciudad_origen: '', cliente_carga: '', ubicacion_carga: '', cita_carga: '',
   zona_destino: '', ciudad_destino: '', cliente_descarga: '', ubicacion_descarga: '', cita_descarga: '',
   operador: '', tracto: '', remolque: '', folio_remision: '', carta_porte: '',
-  estatus: 'PENDIENTE', coordinador: '', notas: '',
+  estatus: 'PROGRAMADO PARA CARGA', coordinador: '', notas: '',
 };
 
 function toInputDT(iso) {

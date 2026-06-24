@@ -85,7 +85,7 @@ router.post('/', async (req, res) => {
       .input('remolque', sql.NVarChar, d.remolque || null)
       .input('folio_remision', sql.NVarChar, d.folio_remision || null)
       .input('carta_porte', sql.NVarChar, d.carta_porte || null)
-      .input('estatus', sql.NVarChar, d.estatus || 'PENDIENTE')
+      .input('estatus', sql.NVarChar, d.estatus || 'PROGRAMADO PARA CARGA')
       .input('coordinador', sql.NVarChar, d.coordinador || null)
       .input('notas', sql.NVarChar, d.notas || null)
       .query(`
@@ -130,7 +130,7 @@ router.put('/:id', async (req, res) => {
       .input('remolque', sql.NVarChar, d.remolque || null)
       .input('folio_remision', sql.NVarChar, d.folio_remision || null)
       .input('carta_porte', sql.NVarChar, d.carta_porte || null)
-      .input('estatus', sql.NVarChar, d.estatus || 'PENDIENTE')
+      .input('estatus', sql.NVarChar, d.estatus || 'PROGRAMADO PARA CARGA')
       .input('coordinador', sql.NVarChar, d.coordinador || null)
       .input('notas', sql.NVarChar, d.notas || null)
       .query(`

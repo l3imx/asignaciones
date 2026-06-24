@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import StatusBadge from '../components/StatusBadge';
 
-const ESTATUS = ['', 'PENDIENTE', 'CUBIERTO', 'FINALIZADO', 'CANCELADO'];
+const ESTATUS = ['', 'TRANSITO CARGADO', 'ESPERA DE CARGA', 'ESPERA DE DESCARGA', 'PROGRAMADO PARA CARGA', 'FINALIZADO', 'CANCELADO'];
 
 function fmtDate(iso) {
   if (!iso) return '—';
