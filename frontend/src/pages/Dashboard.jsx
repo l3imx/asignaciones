@@ -100,6 +100,7 @@ export default function Dashboard() {
                           <span
                             key={u.id}
                             className={`unit-chip ${u.estatus === 'FINALIZADO' ? 'unit-chip-available' : 'unit-chip-active'}`}
+                            style={u.estatus === 'CANCELADO' ? { opacity: 0.4 } : {}}
                             title={`${u.estatus} — Viene de: ${u.origen}`}
                             onClick={() => nav(`/asignaciones/viajes/${u.id}/editar`)}
                           >

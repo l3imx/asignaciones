@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
                CONVERT(varchar, cita_descarga, 23) as fecha_disponible,
                cliente_paga, ciudad_origen
         FROM asig_viajes
-        WHERE estatus IN ('TRANSITO CARGADO', 'ESPERA DE DESCARGA', 'FINALIZADO')
+        WHERE estatus IN ('TRANSITO CARGADO', 'ESPERA DE CARGA', 'ESPERA DE DESCARGA', 'PROGRAMADO PARA CARGA', 'FINALIZADO')
           AND cita_descarga >= @start
           AND cita_descarga < @end
           AND tracto IS NOT NULL AND tracto != ''
