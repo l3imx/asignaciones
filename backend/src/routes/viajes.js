@@ -25,8 +25,11 @@ router.get('/', async (req, res) => {
     req2.input('offset', sql.Int, offset);
 
     const result = await req2.query(`
-      SELECT * FROM asig_viajes ${where}
-      ORDER BY fecha_creacion DESC
+      SELECT v.*, c.nombre AS cliente_nombre
+      FROM asig_viajes v
+      LEFT JOIN asig_clientes c ON c.id = v.cliente_id
+      ${where}
+      ORDER BY v.fecha_creacion DESC
       OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY
     `);
 
@@ -36,7 +39,7 @@ router.get('/', async (req, res) => {
     if (desde) countReq.input('desde', sql.DateTime, new Date(desde));
     if (hasta) countReq.input('hasta', sql.DateTime, new Date(hasta));
     if (q) countReq.input('q', sql.NVarChar, `%${q}%`);
-    const countResult = await countReq.query(`SELECT COUNT(*) as total FROM asig_viajes ${where}`);
+    const countResult = await countReq.query(`SELECT COUNT(*) as total FROM asig_viajes v LEFT JOIN asig_clientes c ON c.id = v.cliente_id ${where}`);
 
     res.json({ data: result.recordset, total: countResult.recordset[0].total, page: parseInt(page), limit: parseInt(limit) });
   } catch (err) {

@@ -123,7 +123,7 @@ export default function Viajes() {
                   <tr key={v.id}>
                     <td className="td-mono">{v.no_solicitud || v.id}</td>
                     <td style={{ maxWidth: 160, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {v.cliente_paga || <span className="td-muted">—</span>}
+                      {v.cliente_nombre || <span className="td-muted">—</span>}
                     </td>
                     <td>
                       <div className="td-route">
