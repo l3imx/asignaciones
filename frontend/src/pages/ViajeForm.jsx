@@ -19,6 +19,29 @@ function toInputDT(iso) {
   return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
+// Defined OUTSIDE the component so React doesn't remount on every keystroke
+function Field({ label, name, type = 'text', as, value, onChange, zonas }) {
+  return (
+    <div className="field">
+      <label>{label}</label>
+      {as === 'select' ? (
+        <select value={value} onChange={e => onChange(name, e.target.value)}>
+          <option value="">— Seleccionar —</option>
+          {zonas.map(z => <option key={z.id} value={z.nombre}>{z.nombre}</option>)}
+        </select>
+      ) : as === 'estatus' ? (
+        <select value={value} onChange={e => onChange(name, e.target.value)}>
+          {ESTATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
+      ) : as === 'textarea' ? (
+        <textarea value={value} onChange={e => onChange(name, e.target.value)} />
+      ) : (
+        <input type={type} value={value} onChange={e => onChange(name, e.target.value)} />
+      )}
+    </div>
+  );
+}
+
 export default function ViajeForm() {
   const { id } = useParams();
   const nav = useNavigate();
@@ -62,25 +85,13 @@ export default function ViajeForm() {
     }
   };
 
-  const Field = ({ label, name, type = 'text', as }) => (
-    <div className="field">
-      <label>{label}</label>
-      {as === 'select' ? (
-        <select value={form[name] || ''} onChange={e => set(name, e.target.value)}>
-          <option value="">— Seleccionar —</option>
-          {zonas.map(z => <option key={z.id} value={z.nombre}>{z.nombre}</option>)}
-        </select>
-      ) : as === 'estatus' ? (
-        <select value={form[name] || ''} onChange={e => set(name, e.target.value)}>
-          {ESTATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
-        </select>
-      ) : as === 'textarea' ? (
-        <textarea value={form[name] || ''} onChange={e => set(name, e.target.value)} />
-      ) : (
-        <input type={type} value={form[name] || ''} onChange={e => set(name, e.target.value)} />
-      )}
-    </div>
-  );
+  const f = (name, extra = {}) => ({
+    name,
+    value: form[name] || '',
+    onChange: set,
+    zonas,
+    ...extra,
+  });
 
   return (
     <div className="page form-page">
@@ -99,47 +110,47 @@ export default function ViajeForm() {
             <div className="form-section form-full">
               <div className="form-section-title">General</div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
-                <Field label="No. Solicitud" name="no_solicitud" />
-                <Field label="Cliente que paga" name="cliente_paga" />
-                <Field label="Coordinador" name="coordinador" />
+                <Field label="No. Solicitud" {...f('no_solicitud')} />
+                <Field label="Cliente que paga" {...f('cliente_paga')} />
+                <Field label="Coordinador" {...f('coordinador')} />
               </div>
             </div>
 
             {/* ── ORIGEN ── */}
             <div className="form-section">
               <div className="form-section-title orange">Origen</div>
-              <Field label="Zona origen" name="zona_origen" as="select" />
-              <Field label="Ciudad origen" name="ciudad_origen" />
-              <Field label="Cliente carga" name="cliente_carga" />
-              <Field label="Ubicación carga" name="ubicacion_carga" as="textarea" />
-              <Field label="Cita de carga" name="cita_carga" type="datetime-local" />
+              <Field label="Zona origen" {...f('zona_origen', { as: 'select' })} />
+              <Field label="Ciudad origen" {...f('ciudad_origen')} />
+              <Field label="Cliente carga" {...f('cliente_carga')} />
+              <Field label="Ubicación carga" {...f('ubicacion_carga', { as: 'textarea' })} />
+              <Field label="Cita de carga" {...f('cita_carga', { type: 'datetime-local' })} />
             </div>
 
             {/* ── DESTINO ── */}
             <div className="form-section">
               <div className="form-section-title blue">Destino</div>
-              <Field label="Zona destino" name="zona_destino" as="select" />
-              <Field label="Ciudad destino" name="ciudad_destino" />
-              <Field label="Cliente descarga" name="cliente_descarga" />
-              <Field label="Ubicación descarga" name="ubicacion_descarga" as="textarea" />
-              <Field label="Cita de descarga" name="cita_descarga" type="datetime-local" />
+              <Field label="Zona destino" {...f('zona_destino', { as: 'select' })} />
+              <Field label="Ciudad destino" {...f('ciudad_destino')} />
+              <Field label="Cliente descarga" {...f('cliente_descarga')} />
+              <Field label="Ubicación descarga" {...f('ubicacion_descarga', { as: 'textarea' })} />
+              <Field label="Cita de descarga" {...f('cita_descarga', { type: 'datetime-local' })} />
             </div>
 
             {/* ── UNIDAD ── */}
             <div className="form-section">
               <div className="form-section-title green">Unidad</div>
-              <Field label="Operador" name="operador" />
-              <Field label="Tracto (ej. TT3248)" name="tracto" />
-              <Field label="Remolque (ej. RS1089)" name="remolque" />
-              <Field label="Folio / Remisión" name="folio_remision" />
-              <Field label="Carta Porte" name="carta_porte" />
+              <Field label="Operador" {...f('operador')} />
+              <Field label="Tracto (ej. TT3248)" {...f('tracto')} />
+              <Field label="Remolque (ej. RS1089)" {...f('remolque')} />
+              <Field label="Folio / Remisión" {...f('folio_remision')} />
+              <Field label="Carta Porte" {...f('carta_porte')} />
             </div>
 
             {/* ── STATUS ── */}
             <div className="form-section">
               <div className="form-section-title">Estatus</div>
-              <Field label="Estatus" name="estatus" as="estatus" />
-              <Field label="Notas" name="notas" as="textarea" />
+              <Field label="Estatus" {...f('estatus', { as: 'estatus' })} />
+              <Field label="Notas" {...f('notas', { as: 'textarea' })} />
             </div>
 
           </div>
