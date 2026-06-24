@@ -39,15 +39,24 @@ router.get('/', async (req, res) => {
           AND tracto IS NOT NULL AND tracto != ''
       `);
 
+    // If a tracto has any active (non-FINALIZADO) trip this week, hide its FINALIZADO trips
+    const activeTractos = new Set(
+      cubiertos.recordset
+        .filter(r => r.estatus !== 'FINALIZADO')
+        .map(r => r.tracto)
+        .filter(Boolean)
+    );
+    const trips = cubiertos.recordset.filter(r =>
+      !(r.estatus === 'FINALIZADO' && activeTractos.has(r.tracto))
+    );
+
     // Build rows dynamically from distinct estados in trips this week
     const estados = [...new Set(
-      cubiertos.recordset
-        .map(r => r.zona_destino)
-        .filter(Boolean)
+      trips.map(r => r.zona_destino).filter(Boolean)
     )].sort();
 
     const enFirmaMap = {};
-    cubiertos.recordset.forEach((r) => {
+    trips.forEach((r) => {
       if (r.zona_destino) {
         enFirmaMap[r.zona_destino] = (enFirmaMap[r.zona_destino] || 0) + 1;
       }
@@ -56,7 +65,7 @@ router.get('/', async (req, res) => {
     const board = estados.map((estado) => {
       const units = {};
       days.forEach((d) => { units[d] = []; });
-      cubiertos.recordset
+      trips
         .filter((r) => r.zona_destino === estado)
         .forEach((r) => {
           if (units[r.fecha_disponible]) {
