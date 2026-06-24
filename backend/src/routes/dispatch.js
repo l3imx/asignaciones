@@ -39,10 +39,13 @@ router.get('/', async (req, res) => {
           AND tracto IS NOT NULL AND tracto != ''
       `);
 
-    // All zones
-    const zonas = await pool.request().query('SELECT * FROM asig_zonas WHERE activo=1 ORDER BY nombre');
+    // Build rows dynamically from distinct estados in trips this week
+    const estados = [...new Set(
+      cubiertos.recordset
+        .map(r => r.zona_destino)
+        .filter(Boolean)
+    )].sort();
 
-    // EN FIRMA = total units (chips) on the board for that zone this week
     const enFirmaMap = {};
     cubiertos.recordset.forEach((r) => {
       if (r.zona_destino) {
@@ -50,17 +53,17 @@ router.get('/', async (req, res) => {
       }
     });
 
-    const board = zonas.recordset.map((z) => {
+    const board = estados.map((estado) => {
       const units = {};
       days.forEach((d) => { units[d] = []; });
       cubiertos.recordset
-        .filter((r) => r.zona_destino === z.nombre)
+        .filter((r) => r.zona_destino === estado)
         .forEach((r) => {
           if (units[r.fecha_disponible]) {
             units[r.fecha_disponible].push({ id: r.id, tracto: r.tracto, origen: r.ciudad_origen });
           }
         });
-      return { id: z.id, nombre: z.nombre, enFirma: enFirmaMap[z.nombre] || 0, units };
+      return { nombre: estado, enFirma: enFirmaMap[estado] || 0, units };
     });
 
     res.json({ days, board });

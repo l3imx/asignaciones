@@ -80,7 +80,7 @@ export default function Dashboard() {
             <table className="dispatch-table">
               <thead>
                 <tr>
-                  <th className="col-zona">ZONA</th>
+                  <th className="col-zona">DESTINO</th>
                   <th className="col-firma">TOTAL</th>
                   {data.days.map(d => (
                     <th key={d} style={isToday(d) ? { background: '#f5a623', color: '#1a1a2e' } : {}}>
@@ -91,7 +91,7 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {data.board.map(zona => (
-                  <tr key={zona.id}>
+                  <tr key={zona.nombre}>
                     <td className="col-zona">{zona.nombre}</td>
                     <td className="col-firma">{zona.enFirma > 0 ? zona.enFirma : '—'}</td>
                     {data.days.map(d => (
