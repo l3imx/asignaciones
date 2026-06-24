@@ -94,18 +94,20 @@ body {
 .dispatch-table tr:hover td { background: #fafafa; }
 .unit-chip {
   display: inline-block;
-  background: #1a1a2e;
-  color: #fff;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 6px;
   margin: 2px;
   cursor: pointer;
-  transition: transform .1s;
+  transition: all .1s;
   letter-spacing: .3px;
 }
-.unit-chip:hover { transform: scale(1.05); background: #2d2d4e; }
+.unit-chip:hover { transform: scale(1.05); }
+.unit-chip-active    { background: #dc2626; color: #fff; }
+.unit-chip-active:hover { background: #b91c1c; }
+.unit-chip-available { background: #059669; color: #fff; }
+.unit-chip-available:hover { background: #047857; }
 .day-today th { background: #f5a623 !important; color: #1a1a2e !important; }
 .day-today td { background: #fffbf0; }
 

@@ -99,8 +99,8 @@ export default function Dashboard() {
                         {zona.units[d]?.map(u => (
                           <span
                             key={u.id}
-                            className="unit-chip"
-                            title={`Viene de: ${u.origen}`}
+                            className={`unit-chip ${u.estatus === 'FINALIZADO' ? 'unit-chip-available' : 'unit-chip-active'}`}
+                            title={`${u.estatus} — Viene de: ${u.origen}`}
                             onClick={() => nav(`/asignaciones/viajes/${u.id}/editar`)}
                           >
                             {u.tracto}

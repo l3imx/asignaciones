@@ -29,11 +29,11 @@ router.get('/', async (req, res) => {
       .input('start', sql.DateTime, monday)
       .input('end', sql.DateTime, sunday)
       .query(`
-        SELECT id, tracto, zona_destino, ciudad_destino,
+        SELECT id, tracto, zona_destino, ciudad_destino, estatus,
                CONVERT(varchar, cita_descarga, 23) as fecha_disponible,
                cliente_paga, ciudad_origen
         FROM asig_viajes
-        WHERE estatus IN ('TRANSITO CARGADO', 'ESPERA DE DESCARGA')
+        WHERE estatus IN ('TRANSITO CARGADO', 'ESPERA DE DESCARGA', 'FINALIZADO')
           AND cita_descarga >= @start
           AND cita_descarga < @end
           AND tracto IS NOT NULL AND tracto != ''
@@ -60,7 +60,7 @@ router.get('/', async (req, res) => {
         .filter((r) => r.zona_destino === estado)
         .forEach((r) => {
           if (units[r.fecha_disponible]) {
-            units[r.fecha_disponible].push({ id: r.id, tracto: r.tracto, origen: r.ciudad_origen });
+            units[r.fecha_disponible].push({ id: r.id, tracto: r.tracto, origen: r.ciudad_origen, estatus: r.estatus });
           }
         });
       return { nombre: estado, enFirma: enFirmaMap[estado] || 0, units };
